@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "devserver": "webpack-dashboard -- webpack-dev-server",
-    "build-pro": "rm -rf ./build && NODE_ENV=\"production\" webpack",
-    "build-dev": "rm -rf ./build && NODE_ENV=\"development\" webpack"
+    "build-pro": "rm -rf ./build && NODE_ENV=production webpack --progress",
+    "build-dev": "rm -rf ./build && NODE_ENV=development webpack"
   },
   "author": "Vlad Tkachenko",
   "license": "ISC",
@@ -52,6 +52,7 @@
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-runtime": "^6.23.0",
+    "compression-webpack-plugin": "^1.0.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.4",
     "eslint": "^4.2.0",
@@ -79,7 +80,6 @@
     "webpack-bundle-tracker": "^0.2.0",
     "webpack-dashboard": "^0.4.0",
     "webpack-dev-server": "^2.5.1",
-    "webpack-manifest-plugin": "^1.1.2",
     "webpack-uglify-js-plugin": "^1.1.9"
   },
   "postcss": {

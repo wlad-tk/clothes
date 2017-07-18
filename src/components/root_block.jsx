@@ -1,4 +1,5 @@
-import React, {PureComponent, PropTypes, cloneElement} from 'react';
+import React, {PureComponent, cloneElement} from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 
 class RootBlock extends PureComponent {

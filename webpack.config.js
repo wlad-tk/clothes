@@ -5,8 +5,8 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DashboardPlugin = require("webpack-dashboard/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const autoprefixer = require("autoprefixer");
-const CopyWebpackPlugin = require("copy-webpack-plugin");
-const CompressionPlugin = require("compression-webpack-plugin");
+// const CopyWebpackPlugin = require("copy-webpack-plugin");
+// const CompressionPlugin = require("compression-webpack-plugin");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
 const nodeEnv = process.env.NODE_ENV || "development";
@@ -87,7 +87,7 @@ if (isProduction) {
             path: buildPath,
             filename: "index.html",
             favicon: "favicon.ico",
-            // chunks: ['index', 'library']
+            chunks: ['index', 'library']
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
@@ -130,7 +130,7 @@ if (isProduction) {
         new ExtractTextPlugin("css/b.min.css"),
         new BundleTracker({filename: "./build/webpack-stats.json"}),
         new webpack.optimize.ModuleConcatenationPlugin(),
-        // new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.OccurrenceOrderPlugin(),
         // new CopyWebpackPlugin([
         //         {
         //             from: path.join(sourcePath, "jquery.min.js"),
@@ -155,22 +155,20 @@ if (isProduction) {
         //     ],
         //     {copyUnmodified: true}
         // ),
-
-        new webpack.optimize.CommonsChunkPlugin({
-            name: 'library',
-            filename: "js/library.[chunkhash:8].js",
-            minChunks(module, count) {
-                return module.context && module.context.indexOf('node_modules') >= 0;
-            },
-            chunks: ['index']
-        }),
-
         new webpack.ProvidePlugin({
             React: "react",
             ReactDOM: "react-dom",
             PureComponent: "react",
             PropTypes: "react",
             _: 'lodash'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'library',
+            filename: "js/library.[hash:8].js",
+            minChunks(module, count) {
+                return module.context && module.context.indexOf('node_modules') >= 0;
+            },
+            chunks: ['index']
         }),
         // new CompressionPlugin({
         //     asset: "[path].gz",
@@ -188,6 +186,7 @@ if (isProduction) {
             template: path.join(sourcePath, "index.html"),
             path: buildPath,
             filename: "index.html",
+            chunks: ['index', 'library']
         }),
         new webpack.LoaderOptionsPlugin({
             options: {
@@ -216,7 +215,19 @@ if (isProduction) {
         new webpack.ProvidePlugin({
             React: "react",
             ReactDOM: "react-dom",
-        })
+            PureComponent: "react",
+            PropTypes: "react",
+            _: 'lodash'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'library',
+            filename: "js/library.[hash:8].js",
+            minChunks(module, count) {
+                return module.context && module.context.indexOf('node_modules') >= 0;
+            },
+            chunks: ['index']
+        }),
+
         // new BundleAnalyzerPlugin({
         //   reportFilename: "report.html",
         // })
@@ -257,8 +268,8 @@ module.exports = {
     output: {
         path: buildPath,
         publicPath: "/",
-        filename: isProduction ? "js/[name]-[chunkhash:8].min.js" : "js/[name]-[chunkhash:8].js", //"bundle.min.js" or "bundle.js"
-        // chunkFilename: 'chunk.[id].[chunkhash:8].js'
+        filename: isProduction ? "js/[name]-[hash:8].min.js" : "js/[name]-[hash:8].js", //"bundle.min.js" or "bundle.js"
+        // chunkFilename: 'chunk.[id].[hash:8].js'
     },
     module: {
         rules

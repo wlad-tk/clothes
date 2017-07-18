@@ -1,5 +1,6 @@
 import React, {PureComponent} from 'react';
 import PropTypes from 'prop-types';
+import $ from 'jquery';
 
 class Home extends PureComponent {
     constructor(props) {

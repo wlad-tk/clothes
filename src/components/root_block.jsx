@@ -15,7 +15,6 @@ class RootBlock extends PureComponent {
     render() {
         return (
             <div>
-                <p>Hello world</p>
                 {cloneElement(this.props.children, {})}
             </div>
         )

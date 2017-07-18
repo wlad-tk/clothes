@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const DashboardPlugin = require("webpack-dashboard/plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const autoprefixer = require("autoprefixer");
-// const CopyWebpackPlugin = require("copy-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 // const CompressionPlugin = require("compression-webpack-plugin");
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
 
@@ -131,6 +131,16 @@ if (isProduction) {
         new BundleTracker({filename: "./build/webpack-stats.json"}),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
+
+        new CopyWebpackPlugin([
+                {
+                    from: path.join(sourcePath, "library"),
+                    to: "library"
+                }
+            ],
+            {copyUnmodified: true}
+        ),
+
         // new CopyWebpackPlugin([
         //         {
         //             from: path.join(sourcePath, "jquery.min.js"),
@@ -232,30 +242,14 @@ if (isProduction) {
         //   reportFilename: "report.html",
         // })
 
-        // new CopyWebpackPlugin([
-        //     {
-        //         from: path.join(sourcePath, "jquery.min.js"),
-        //         to: "js"
-        //     },
-        //     {
-        //         from: path.join(sourcePath, "scrolloverflow.min.js"),
-        //         to: "js"
-        //     },
-        //     {
-        //         from: path.join(sourcePath, "jquery.fullPage.js"),
-        //         to: "js"
-        //     },
-        //     {
-        //         from: path.join(sourcePath, "jquery.blueimp-gallery.min.js"),
-        //         to: "js"
-        //     },
-        //     {
-        //         from: path.join(sourcePath, "img/backgrounds/ajax-loader.gif"),
-        //         to: "img/backgrounds"
-        //     },
-        // ],
-        //     {copyUnmodified: true}
-        // ),
+        new CopyWebpackPlugin([
+            {
+                from: path.join(sourcePath, "library"),
+                to: "library"
+            }
+        ],
+            {copyUnmodified: true}
+        ),
     ];
 }
 

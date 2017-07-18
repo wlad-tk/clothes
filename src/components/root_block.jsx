@@ -1,6 +1,8 @@
 import React, {PureComponent, cloneElement} from 'react';
 import PropTypes from 'prop-types';
-import _ from 'lodash';
+
+import HeaderMenu from './header/header_menu';
+import FooterMenu from './footer/foter';
 
 class RootBlock extends PureComponent {
     constructor(props) {
@@ -15,7 +17,9 @@ class RootBlock extends PureComponent {
     render() {
         return (
             <div>
+                <HeaderMenu/>
                 {cloneElement(this.props.children, {})}
+                <FooterMenu/>
             </div>
         )
     }

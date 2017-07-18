@@ -73,7 +73,7 @@ label {
 margin: 7px 0 0 0;
 } 
 .navbar-inverse .navbar-brand img {
-	height: 6.5vh;
+	height: 9vh;
 }
 .section-title {
 	margin-bottom: 20px;
@@ -907,6 +907,10 @@ nav#filter a.current {
 	padding: 4px 8px;
 }
 
+.news-box {
+	padding: 0 15px;
+}
+
 /**
   MEDIA QUERIES
 */
@@ -937,7 +941,6 @@ height:480px !important;
 		margin-left: -35px;
 	}
 }
-
 @media (max-width: 767px) {
 .navbar-collapse ul {
 	text-align: right;
@@ -976,7 +979,6 @@ text-align: right;
 	text-align: center;
 }
 }
-
 @media (max-width: 420px) {
     .navbar-inverse {
 background: rgba(255, 255, 255, 0.8);

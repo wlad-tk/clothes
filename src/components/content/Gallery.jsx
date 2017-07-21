@@ -1,7 +1,6 @@
 import React, {PureComponent} from 'react';
-import PropTypes from 'prop-types';
 
-class Home2 extends PureComponent {
+class Gallery extends PureComponent {
     constructor(props) {
         super(props);
     };
@@ -17,4 +16,4 @@ class Home2 extends PureComponent {
         )
     }
 }
-export default Home2;
+export default Gallery;

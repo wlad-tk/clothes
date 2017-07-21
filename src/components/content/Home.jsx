@@ -34,6 +34,12 @@ const CONTENT = [
     }
 ];
 
+const galleryHome = [
+    "sh_p_001.jpg",
+    "sh_p_003.jpg",
+    "sh_p_004.jpg",
+];
+
 class Home extends PureComponent {
     constructor(props) {
         super(props);
@@ -44,7 +50,6 @@ class Home extends PureComponent {
 
     componentDidMount() {
         (function($) {
-            // $(document).ready(function (e) {
                 $('#camera_wrap_4').camera({
                     height: '600',
                     loader: 'bar',
@@ -52,9 +57,7 @@ class Home extends PureComponent {
                     thumbnails: false,
                     hover: false,
                     opacityOnGrid: false,
-                    // imagePath: 'assets/images/'
                 });
-            // });
         }) (jQuery)
     };
 
@@ -67,9 +70,9 @@ class Home extends PureComponent {
                     <div className="container">
                         <div className="fluid_container">
                             <div className="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
-                                <div data-src={require('../../img/slider_home/sh_p_001.jpg')}/>
-                                <div data-src={require('../../img/slider_home/sh_p_003.jpg')}/>
-                                <div data-src={require('../../img/slider_home/sh_p_004.jpg')}/>
+                                {_.map(galleryHome, (value, key) =>
+                                    <div key={key} data-src={require('../../img/slider_home/'+ value)}/>
+                                )}
                             </div>
                         </div>
                     </div>
@@ -80,9 +83,9 @@ class Home extends PureComponent {
                         <div className="section-heading">
                             <h2>Почему с нами?</h2>
                         </div>
-                        {_.map(groupelement, (value, key) =>
-                            <div key={key} className="row">
-                                {_.map(value, (value, key) =>
+                        {_.map(groupelement, (valuechunk, keychunk) =>
+                            <div key={keychunk} className="row">
+                                {_.map(valuechunk, (value, key) =>
                                     <div key={key} className="col-md-4">
                                         <div className="featured-box">
                                             <i className={"fa fa-"+ value.classStyle +" fa-2x"}/>

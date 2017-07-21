@@ -26,11 +26,11 @@ class FooterMenu extends PureComponent {
                             <div className="col-md-6 panel">
                                 <div className="panel-body">
                                     <p className="simplenav">
-                                        <a href="index.html">Главная</a> |
-                                        <a href="projects.html">Галерея</a> |
-                                        <a href="services.html">Пошив одежды</a> |
-                                        <a href="price.html">Печать на ткани</a> |
-                                        <a href="contact.html">Контакты</a>
+                                        <Link to='/' activeClassName="active">Главная</Link> |
+                                        <Link to='/gallery' activeClassName="active">Галерея</Link> |
+                                        <Link to='/tailoring' activeClassName="active">Пошив одежды</Link> |
+                                        <Link to='/print' activeClassName="active">Печать на ткани</Link> |
+                                        <Link to='/contact' activeClassName="active">Контакты</Link> |
                                     </p>
                                 </div>
                             </div>

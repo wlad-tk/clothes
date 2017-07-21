@@ -44,13 +44,11 @@ class HeaderMenu extends PureComponent {
                         </div>
                         <div className="navbar-collapse collapse">
                             <ul className="nav navbar-nav pull-right mainNav">
-                                <li>
-                                    <Link to='/' activeClassName="active">Галерея</Link>
-                                </li>
-                                <li><a href="projects.html">Галерея</a></li>
-                                <li><a href="services.html">Пошив одежды</a></li>
-                                <li><a href="price.html">Печать на ткани</a></li>
-                                <li><a href="contact.html">Контакты</a></li>
+                                <li><Link to='/' activeClassName="active">Главная</Link></li>
+                                <li><Link to='/gallery' activeClassName="active">Галерея</Link></li>
+                                <li><Link to='/tailoring' activeClassName="active">Пошив одежды</Link></li>
+                                <li><Link to='/print' activeClassName="active">Печать на ткани</Link></li>
+                                <li><Link to='/contact' activeClassName="active">Контакты</Link></li>
                             </ul>
                         </div>
                     </div>

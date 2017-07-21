@@ -4,13 +4,13 @@ import {browserHistory, Router, Route, IndexRoute} from "react-router";
 
 import RootBlock from './components/root_block';
 import Home from './components/content/Home';
-import Home2 from './components/content/Home2';
+import Gallery from './components/content/Gallery';
 
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={RootBlock}>
             <IndexRoute component={Home}/>
-            <Route path='/home2' component={Home2} />
+            <Route path='/home2' component={Gallery} />
         </Route>
     </Router>,
     document.getElementById('first')

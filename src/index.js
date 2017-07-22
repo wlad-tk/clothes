@@ -10,7 +10,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={RootBlock}>
             <IndexRoute component={Home}/>
-            <Route path='/home2' component={Gallery} />
+            <Route path='/gallery' component={Gallery} />
         </Route>
     </Router>,
     document.getElementById('first')

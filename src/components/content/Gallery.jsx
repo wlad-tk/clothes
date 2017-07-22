@@ -5,12 +5,12 @@ class Gallery extends PureComponent {
         super(props);
     };
 
-    static displayName = 'Home Page2';
+    static displayName = 'Gallery';
     static propTypes = {};
 
     render() {
         return (
-            <div ref="Home2" id="Home2">
+            <div>
                 <p>Element</p>
             </div>
         )

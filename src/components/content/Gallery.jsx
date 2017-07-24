@@ -1,25 +1,56 @@
 import React, {PureComponent} from 'react';
+import _ from 'lodash';
 
 import ImageGallery from "./ImageGallery"
+
+const GALLARY_MENU = [
+    {
+        title: '',
+        text: 'Всё'
+    },
+    {
+        title: 'vest',
+        text: 'Жилеты и куртки'
+    },
+    {
+        title: 't_shirts',
+        text: 'Футболки и фартуки'
+    },
+    {
+        title: 'sweatshirts',
+        text: 'Кофты и регланы'
+    },
+    {
+        title: 'baby_clothes',
+        text: 'Детская одежда'
+    },
+    {
+        title: 'prints',
+        text: 'Виды нанесения'
+    }
+];
 
 class Gallery extends PureComponent {
     constructor(props) {
         super(props);
+        this.state = {
+            collection: ''
+        }
     };
 
     static displayName = 'Gallery';
     static propTypes = {};
 
+    changedCollection(value = '') {
+        this.setState({collection: value})
+    }
+
     render() {
+        let collection = this.state.collection;
+
         return (
             <div>
-                <header id="head" className="progect">
-                    {/*<div className="container">*/}
-                        {/*<div className="row">*/}
-                            {/*<div className="col-sm-8"/>*/}
-                        {/*</div>*/}
-                    {/*</div>*/}
-                </header>
+                <header id="head" className="progect"/>
                 <section className="container">
                     <div className="row">
                         <div className="col-md-12">
@@ -31,18 +62,20 @@ class Gallery extends PureComponent {
                                 <div className="row">
                                     <nav id="filter" className="col-md-12 text-center">
                                         <ul>
-                                            <li><a href="#" className="current btn-theme btn-small" data-filter="*">Всё</a></li>
-                                            <li><a href="#" className="btn-theme btn-small" data-filter=".vest">Жилеты и куртки</a></li>
-                                            <li><a href="#" className="btn-theme btn-small" data-filter=".t_shirts">Футболки и фартуки</a></li>
-                                            <li><a href="#" className="btn-theme btn-small" data-filter=".sweatshirts">Кофты и регланы</a></li>
-                                            <li><a href="#" className="btn-theme btn-small" data-filter=".baby_clothes">Детская одежда</a></li>
-                                            <li><a href="#" className="btn-theme btn-small" data-filter=".prints">Виды нанесения</a></li>
+                                            {_.map(GALLARY_MENU, (value, key) =>
+                                                <li key={key}>
+                                                    <a className={`btn-theme btn-small ${value.title === collection ? 'current' : ''}`}
+                                                       onClick={e => ::this.changedCollection(value.title)}>
+                                                    {value.text}
+                                                    </a>
+                                                </li>
+                                            )}
                                         </ul>
                                     </nav>
                                     <div className="col-md-12">
                                         <div className="row">
                                             <div className="portfolio-items isotopeWrapper clearfix" id="3">
-                                                <ImageGallery/>
+                                                <ImageGallery collection={collection}/>
                                             </div>
                                         </div>
                                     </div>

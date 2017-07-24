@@ -1,8 +1,7 @@
 import React, {PureComponent} from 'react';
+import PropTypes from 'prop-types';
 import _ from 'lodash';
 import Masonry from 'masonry-layout'
-
-
 
 const galleryHome = {
     'vest': [
@@ -70,7 +69,9 @@ class ImageGallery extends PureComponent {
     };
 
     static displayName = 'ImageGallery';
-    static propTypes = {};
+    static propTypes = {
+        collection: PropTypes.string
+    };
 
     static componentDidMount() {
         this.masonryReload()
@@ -97,14 +98,16 @@ class ImageGallery extends PureComponent {
     // }
 
 
-    getImages(objectIm) {
-         return _.map(objectIm.prints, (value, key) =>
+    getImages(collection) {
+        if (!collection) {return _.map(galleryHome, (value, key) => this.getImages(key))}
+
+        return _.map(galleryHome[collection], (value, key) =>
             <article key={key} className={"col-sm-4 isotopeItem"} >
                 <div className="portfolio-item">
-                    <img src={require('../../img/portfolio/'+ 'prints' +'/'+ value)} onLoad={ImageGallery.masonryReload}/>
+                    <img src={require('../../img/portfolio/'+ collection +'/'+ value)} onLoad={ImageGallery.masonryReload}/>
                     <div className="portfolio-desc align-center">
                         <div className="folio-info">
-                            <a href={require('../../img/portfolio/'+ 'prints' +'/'+ value)} className="fancybox">
+                            <a href={require('../../img/portfolio/'+ collection +'/'+ value)} className="fancybox">
                                 <h5>Project Title</h5>
                                 <i className="fa fa-link fa-2x"/>
                             </a>
@@ -118,29 +121,7 @@ class ImageGallery extends PureComponent {
     render() {
         return (
             <div className="portfolio-items isotopeWrapper clearfix">
-
-                {this.getImages(galleryHome)}
-
-
-                {/*{_.map(galleryHome, (value_parent, key_parent) =>*/}
-                    {/*<div key={key_parent}>*/}
-                        {/*{_.map(value_parent, (value, key) =>*/}
-                            {/*<article key={key} className={"col-sm-4 isotopeItem " + key_parent} >*/}
-                                {/*<div className="portfolio-item">*/}
-                                    {/*<img src={require('../../img/portfolio/'+ key_parent +'/'+ value)} onLoad={ImageGallery.masonryReload}/>*/}
-                                    {/*<div className="portfolio-desc align-center">*/}
-                                        {/*<div className="folio-info">*/}
-                                            {/*<a href={require('../../img/portfolio/'+ key_parent +'/'+ value)} className="fancybox">*/}
-                                                {/*<h5>Project Title</h5>*/}
-                                                {/*<i className="fa fa-link fa-2x"/>*/}
-                                            {/*</a>*/}
-                                        {/*</div>*/}
-                                    {/*</div>*/}
-                                {/*</div>*/}
-                            {/*</article>*/}
-                        {/*)}*/}
-                    {/*</div>*/}
-                {/*)}*/}
+                {this.getImages(this.props.collection)}
             </div>
         );
     }

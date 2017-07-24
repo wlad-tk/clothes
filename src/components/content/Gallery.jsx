@@ -41,6 +41,10 @@ class Gallery extends PureComponent {
     static displayName = 'Gallery';
     static propTypes = {};
 
+    componentDidMount() {
+        document.title = "Наши работы";
+    };
+
     changedCollection(value = '') {
         this.setState({collection: value})
     }

@@ -30,7 +30,7 @@ class FooterMenu extends PureComponent {
                                         <Link to='/gallery' activeClassName="active">Галерея</Link> |
                                         <Link to='/tailoring' activeClassName="active">Пошив одежды</Link> |
                                         <Link to='/print' activeClassName="active">Печать на ткани</Link> |
-                                        <Link to='/contact' activeClassName="active">Контакты</Link> |
+                                        <Link to='/contact' activeClassName="active">Контакты</Link>
                                     </p>
                                 </div>
                             </div>

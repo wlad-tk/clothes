@@ -1,9 +1,3 @@
-/*
-Author: http://webthemez.com
-Note: Donate to remove backlink/credits in the footer(webthemez.com)--
-Any help: webthemez@gmail.com
-Licence: Creative Commons Attribution 3.0** - http://creativecommons.org/licenses/by/3.0/
-*/
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,700);
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 body {
@@ -14,6 +8,11 @@ body {
 	background: #fff;
 }
 /*General*/
+html,
+body {
+	overflow-x: auto;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-weight: normal;
 	font-family: 'Oswald', sans-serif;
@@ -45,8 +44,8 @@ blockquote {
 	font-style: italic;
 	font-family: Georgia;
 	color: #999;
-	margin: 0px 0 0px;
-	padding: 0px 20px;
+	margin: 0;
+	padding: 0 20px;
 }
 label {
 	color: #777;
@@ -66,7 +65,7 @@ label {
 	background-color: #F7F7F7;
 	background-image: none;
 	border: 1px solid #ccc;
-	border-radius: 0px;
+	border-radius: 0;
 }
 
 .navbar-inverse .navbar-brand {
@@ -97,7 +96,6 @@ label {
 	padding: 10px 0 0;
 }
 #head {
-	/*background: #181015 url( ../images/bg_header.jpg) no-repeat;*/
 	background-size: cover;
 	height: 600px;
 	text-align: center;
@@ -216,7 +214,6 @@ label {
 	background-color: #f2f2f2;
 	border-top: 1px solid #d8d8d8;
 	border-bottom: 1px solid #d8d8d8;
-	background-color: #F9F9F9;
 	text-align: center;
 }
 .box-2 h1 {
@@ -258,7 +255,6 @@ label {
 	background-image: -webkit-linear-gradient(top, #0ecfec 0%, #09bed9 100%);
 	background-image: linear-gradient(to bottom, #0ecfec 0%, #09bed9 100%);
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0ecfec22', endColorstr='#09bed900', GradientType=0);
-	filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
 	background-repeat: repeat-x;
 	border: 0 none;
 }
@@ -319,8 +315,8 @@ ul, .list.custom-list ul {
 	background: rgba(255, 255, 255, 0.88);
 	z-index: 100;
 	margin: 0 auto;
-	left: 0px;
-	right: 0px;
+	left: 0;
+	right: 0;
 	border-top: #0dc0c0 solid 2px;
 }
 .navbar-inverse {
@@ -551,7 +547,7 @@ footer {
 /* carousel */
 #quote-carousel {
 	padding: 0 10px 30px 10px;
-	margin-top: 30px 0px 0px;
+	margin-top: 30px;
 }
 /* Control buttons  */
 #quote-carousel .carousel-control {
@@ -614,8 +610,8 @@ footer ul li {
 }
 #map-canvas {
 	height: 100%;
-	margin: 0px;
-	padding: 0px;
+	margin: 0;
+	padding: 0;
 }
 /* ------- */
 
@@ -734,10 +730,10 @@ nav#filter a.current {
 	height: auto;
 	max-height: initial;
 	position: absolute;
-	top: 0px;
-	bottom: 0px;
-	right: 0px;
-	left: 0px;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
 }
 .da-slide h2 {
 	text-align: left;
@@ -771,7 +767,7 @@ nav#filter a.current {
 	text-align: -webkit-center;
 }
 .member-img img {
-	border-radius: 0px;
+	border-radius: 0;
 }
 .team-socials {
 	margin: 15px 0;
@@ -795,7 +791,7 @@ nav#filter a.current {
 	line-height: 32px;
 	padding: 10px 0 0;
 	text-align: center;
-	margin: 0px;
+	margin: 0;
 	color: #fff;
 }
 .team-member .pos {
@@ -857,13 +853,13 @@ nav#filter a.current {
 	margin: 30px 0;
 }
 .flat .plan {
-	border-radius: 0px;
+	border-radius: 0;
 	list-style: none;
 	padding: 0 0 20px;
 	margin: 0 0 15px;
 	background: #fff;
 	text-align: center;
-	box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.29) !important;
+	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.29) !important;
 }
 .flat .plan li {
 	padding: 10px 15px;
@@ -946,7 +942,7 @@ nav#filter a.current {
 @media (max-width: 767px) {
 	.navbar-collapse ul {
 		text-align: right;
-		margin-right: 0px;
+		margin-right: 0;
 	}
 }
 
@@ -967,12 +963,12 @@ nav#filter a.current {
 	}
 	#quote-carousel .carousel-indicators li {
 		display: inline-block;
-		margin: 0px 5px;
+		margin: 0 5px;
 		width: 15px;
 		height: 15px;
 	}
 	#quote-carousel .carousel-indicators li.active {
-		margin: 0px 5px;
+		margin: 0 5px;
 		width: 20px;
 		height: 20px;
 	}

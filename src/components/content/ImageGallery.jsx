@@ -73,8 +73,8 @@ class ImageGallery extends PureComponent {
         collection: PropTypes.string
     };
 
-    static componentDidMount() {
-        this.masonryReload()
+    componentDidMount() {
+        ImageGallery.masonryReload()
     };
 
 

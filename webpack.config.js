@@ -136,6 +136,10 @@ if (isProduction) {
                 {
                     from: path.join(sourcePath, "library"),
                     to: "library"
+                },
+                {
+                    from: path.join(sourcePath, ".htaccess"),
+                    to: ""
                 }
             ],
             {copyUnmodified: true}
@@ -246,7 +250,11 @@ if (isProduction) {
             {
                 from: path.join(sourcePath, "library"),
                 to: "library"
-            }
+            },
+            {
+                from: path.join(sourcePath, ".htaccess"),
+                to: ""
+            },
         ],
             {copyUnmodified: true}
         ),

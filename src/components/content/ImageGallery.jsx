@@ -5,8 +5,6 @@ import Masonry from 'masonry-layout'
 
 import { GALLERY_PROJECT } from '../Constants'
 
-// let timeOut;
-
 class ImageGallery extends PureComponent {
     constructor(props) {
         super(props);
@@ -28,19 +26,6 @@ class ImageGallery extends PureComponent {
             columnWidth: 0
         });
     }
-
-    // masonryReload() {
-    //     clearTimeout(timeOut);
-    //     timeOut = setTimeout(() => {
-    //         console.log('test');
-    //
-    //         new Masonry( '.isotopeWrapper', {
-    //             itemSelector: '.isotopeItem',
-    //             columnWidth: 0
-    //         });
-    //     }, 500);
-    // }
-
 
     getImages(collection) {
         if (!collection) {return _.map(GALLERY_PROJECT, (value, key) => this.getImages(key))}

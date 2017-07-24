@@ -6,6 +6,8 @@ import RootBlock from './components/root_block';
 import Home from './components/content/Home';
 import Gallery from './components/content/Gallery';
 
+import './style/css/style.less'
+
 ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={RootBlock}>

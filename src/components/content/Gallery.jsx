@@ -1,34 +1,8 @@
 import React, {PureComponent} from 'react';
 import _ from 'lodash';
 
+import { GALLARY_MENU } from "../Constants"
 import ImageGallery from "./ImageGallery"
-
-const GALLARY_MENU = [
-    {
-        title: '',
-        text: 'Всё'
-    },
-    {
-        title: 'vest',
-        text: 'Жилеты и куртки'
-    },
-    {
-        title: 't_shirts',
-        text: 'Футболки и фартуки'
-    },
-    {
-        title: 'sweatshirts',
-        text: 'Кофты и регланы'
-    },
-    {
-        title: 'baby_clothes',
-        text: 'Детская одежда'
-    },
-    {
-        title: 'prints',
-        text: 'Виды нанесения'
-    }
-];
 
 class Gallery extends PureComponent {
     constructor(props) {

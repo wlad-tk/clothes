@@ -1,44 +1,7 @@
 import React, {PureComponent} from 'react';
 import _ from 'lodash';
 
-const CONTENT = [
-    {
-        imageStyle: "002_navchera.png",
-        title: "Заказ на вчера",
-        text: "Владея собственным технологическим парком, нам не надо кого-то искать, идти и уговаривать что-то сделать. Мы делаем всё сами. Поэтому если говорим клиенту, что продукт будет готов завтра в 9:00 утра, значит так и будет."
-    },
-    {
-        imageStyle: "004_client.png",
-        title: "Клиентоориентированность",
-        text: "Не стесняемся работать и в выходные, и в праздники, днем и ночью. И это не просто красивые слова, чтобы завлечь Вас. Приезжайте на нашу фабрику в любое время и убедитесь в этом лично."
-    },
-    {
-        imageStyle: "006_test_tirahz.png",
-        title: "Изготовление образца",
-        text: "На изготовление тестового образца мы потратим не больше семи дней."
-    },
-    {
-        imageStyle: "003_complex.png",
-        title: "Комплексные решения",
-        text: "Уникальность нашего предприятия заключается в том, что мы смогли собрать все существующие в природе технологии печати в одном месте. Мы не размещаем заказы на стороне. Подходим к решению любой задачи комплексно. А уже готовую продукцию прилично упакуем. У нас и для этого есть специальное оборудование."
-    },
-    {
-        imageStyle: "005_logist.png",
-        title: "Логистика и цены",
-        text: "Наш секрет в отлаженной системе логистики и гибкой ценовой политике. Мы знаем, как доставить готовую продукцию в целости и сохранности любым удобным для заказчика способом в любую точку Украины. Груз может быть доставлен в офис или на склад заказчика по его желанию. Формируя заявку, просто укажите, где и как Вы его хотите получить."
-    },
-    {
-        imageStyle: "007_opyt.png",
-        title: "Огромный опыт",
-        text: "У нас очень дружный коллектив, мы как одна семья. Люди очень любят свою работу и ответственно к ней относятся. Мы предоставляем каждому человеку уникальную возможность для самореализации, творчества и самосовершенствования. Высоко ценим профессионализм и надежность."
-    }
-];
-
-const galleryHome = [
-    "sh_p_001.jpg",
-    "sh_p_003.jpg",
-    "sh_p_004.jpg",
-];
+import {CONTENT_CHUNK, GALLERY_HOME} from "../Constants"
 
 class Home extends PureComponent {
     constructor(props) {
@@ -51,19 +14,19 @@ class Home extends PureComponent {
     componentDidMount() {
         document.title = "Главная страница";
         (function($) {
-                $('#camera_wrap_4').camera({
-                    height: '600',
-                    loader: 'bar',
-                    pagination: false,
-                    thumbnails: false,
-                    hover: false,
-                    opacityOnGrid: false,
-                });
+            $('#camera_wrap_4').camera({
+                height: '600',
+                loader: 'bar',
+                pagination: false,
+                thumbnails: false,
+                hover: false,
+                opacityOnGrid: false,
+            });
         }) (jQuery)
     };
 
     render() {
-        let groupelement = _.chunk(CONTENT, 3);
+        let groupelement = _.chunk(CONTENT_CHUNK, 3);
 
         return (
             <div>
@@ -71,7 +34,7 @@ class Home extends PureComponent {
                     <div className="container">
                         <div className="fluid_container">
                             <div className="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
-                                {_.map(galleryHome, (value, key) =>
+                                {_.map(GALLERY_HOME, (value, key) =>
                                     <div key={key} data-src={require('../../img/slider_home/'+ value)}/>
                                 )}
                             </div>

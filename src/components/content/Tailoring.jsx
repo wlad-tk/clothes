@@ -8,9 +8,7 @@ class Tailoring extends PureComponent {
     static displayName = 'Tailoring';
     static propTypes = {};
 
-    componentDidMount() {
-        document.title = "Пошив одежды";
-    };
+    componentDidMount() {document.title = "Пошив одежды";};
 
     render() {
         return (

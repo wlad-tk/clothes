@@ -1,6 +1,9 @@
 import React, {PureComponent} from 'react';
 import _ from 'lodash';
 
+import {Carousel} from 'react-responsive-carousel';
+import '../../style/css/carousel/carousel.less';
+
 import {CONTENT_CHUNK, GALLERY_HOME} from "../Constants"
 
 class Home extends PureComponent {
@@ -13,16 +16,6 @@ class Home extends PureComponent {
 
     componentDidMount() {
         document.title = "Главная страница";
-        (function($) {
-            $('#camera_wrap_4').camera({
-                height: '600',
-                loader: 'bar',
-                pagination: false,
-                thumbnails: false,
-                hover: false,
-                opacityOnGrid: false,
-            });
-        }) (jQuery)
     };
 
     render() {
@@ -30,17 +23,22 @@ class Home extends PureComponent {
 
         return (
             <div>
-                <header id="head">
-                    <div className="container">
-                        <div className="fluid_container">
-                            <div className="camera_wrap camera_emboss pattern_1" id="camera_wrap_4">
-                                {_.map(GALLERY_HOME, (value, key) =>
-                                    <div key={key} data-src={require('../../img/slider_home/'+ value)}/>
-                                )}
-                            </div>
+                <Carousel interval={2500}
+                          showArrows={true}
+                          showStatus={false}
+                          showThumbs={false}
+                          autoPlay
+                          infiniteLoop
+                          dynamicHeight
+                          emulateTouch
+                >
+                    {_.map(GALLERY_HOME, (value, key) =>
+                        <div key={key} className="home-galery">
+                            <img src={require('../../img/slider_home/'+ value)}/>
+                            <div style={{ backgroundImage: "url(" + require('../../img/slider_home/'+ value) + ")" }}/>
                         </div>
-                    </div>
-                </header>
+                    )}
+                </Carousel>
 
                 <section className="container">
                     <div className="row">

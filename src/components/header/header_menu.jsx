@@ -9,6 +9,11 @@ class HeaderMenu extends PureComponent {
     static displayName = 'Header Menu';
     static propTypes = {};
 
+    menuOpen() {
+        let styleClass = this.refs.mob_menu.className;
+        this.refs.mob_menu.className = styleClass ? '': 'navbar-collapse collapse'
+    }
+
     render() {
         return (
             <div>
@@ -33,7 +38,7 @@ class HeaderMenu extends PureComponent {
                 <div className="navbar navbar-inverse">
                     <div className="container">
                         <div className="navbar-header">
-                            <button type="button" className="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <button type="button" className="navbar-toggle" onClick={::this.menuOpen}>
                                 <span className="icon-bar"/>
                                 <span className="icon-bar"/>
                                 <span className="icon-bar"/>
@@ -42,7 +47,7 @@ class HeaderMenu extends PureComponent {
                                 <img src={require('../../img/ico/logo.png')}/>
                             </Link>
                         </div>
-                        <div className="navbar-collapse collapse">
+                        <div ref="mob_menu" className="navbar-collapse collapse">
                             <ul className="nav navbar-nav pull-right mainNav">
                                 <li><Link to='/' activeClassName="active">Главная</Link></li>
                                 <li><Link to='/gallery' activeClassName="active">Галерея</Link></li>

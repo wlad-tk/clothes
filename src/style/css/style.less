@@ -69,7 +69,8 @@ label {
 }
 
 .navbar-inverse .navbar-brand {
-	margin: 7px 0 0 0;
+	margin: 0;
+	padding: 0 0 0 15px;
 }
 .navbar-inverse .navbar-brand img {
 	height: 8vh;
@@ -802,45 +803,32 @@ nav#filter a.current {
 	text-align: center;
 	color: #ABABAB;
 }
-#head.secondary {
-	height: 370px;
+#head.secondary,
+#head.progect,
+#head.poh_od,
+#head.secondary-contact,
+#head.secondary-about {
+	height: 60vh;
 	padding-top: 0;
-	background: #181015 url(../../img/images_header/silk_001.jpg) 0 0 no-repeat;
-	/*background: #f11d25;*/
-	background-size: cover;
+	background-size: cover !important;
 	text-align: left;
+	background-position: center;
+}
+
+#head.secondary {
+	background: #181015 url(../../img/images_header/silk_001.jpg) 0 0 no-repeat;
 }
 #head.progect {
-	height: 370px;
-	padding-top: 0;
 	background: #181015 url(../../img/images_header/silk_002.jpg) 0 0 no-repeat;
-	/*background: #f11d25;*/
-	background-size: cover;
-	text-align: left;
 }
 #head.poh_od {
-	height: 370px;;
-	padding-top: 0;
 	background: #181015 url(../../img/images_header/h_005.jpg) 0 0 no-repeat;
-	/*background: #f11d25;*/
-	background-size: cover;
-	text-align: left;
 }
 #head.secondary-contact {
-	height: 370px;
-	padding-top: 0;
 	background: #181015 url(../../img/images_header/1-.jpg) 0 0 no-repeat;
-	/*background: #f11d25;*/
-	background-size: cover;
-	text-align: left;
 }
 #head.secondary-about {
-	height: 370px;
-	padding-top: 0;
 	background: #181015 url(../../img/images_header/h_002.jpg) 0 0 no-repeat;
-	/*background: #f11d25;*/
-	background-size: cover;
-	text-align: left;
 }
 #head.secondary h1,
 #head.secondary-contact h1,
@@ -906,9 +894,23 @@ nav#filter a.current {
 .footer2 a {
 	padding: 4px 8px;
 }
-
 .news-box {
 	padding: 0 15px;
+}
+.home-galery {
+	div {
+		display: none;
+		width: 100%;
+		height: 60vh;
+		background: no-repeat center;
+		background-size: 100% auto;
+	}
+}
+
+.navbar-inverse {
+	border-radius: 0;
+	min-height: 100px;
+	padding-top: 25px;
 }
 
 /**
@@ -993,5 +995,22 @@ nav#filter a.current {
 	.da-slide p {
 		font-size: 19px;
 		font-weight: 400;
+	}
+
+	.navbar-inverse .navbar-brand {
+		margin-top: 1%;
+		padding: 0 0 0 15px;
+	}
+}
+
+
+@media (min-width: 1200px) {
+	.home-galery {
+		img {
+			display: none;
+		}
+		div {
+			display: block;
+		}
 	}
 }

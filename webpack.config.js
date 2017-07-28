@@ -87,7 +87,6 @@ if (isProduction) {
             path: buildPath,
             filename: "index.html",
             favicon: "favicon.ico",
-            chunks: ['index', 'library']
         }),
         new webpack.LoaderOptionsPlugin({
             minimize: true,
@@ -182,7 +181,6 @@ if (isProduction) {
             minChunks(module, count) {
                 return module.context && module.context.indexOf('node_modules') >= 0;
             },
-            chunks: ['index']
         }),
         // new CompressionPlugin({
         //     asset: "[path].gz",

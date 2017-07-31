@@ -49,7 +49,7 @@ const rules = [
         loader: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-                { loader: "css-loader", query: { modules: false } },
+                { loader: "css-loader", query: { localIdentName: '[hash:8]', modules: true } },
                 { loader: "postcss-loader" }
             ]
         }),
@@ -60,7 +60,7 @@ const rules = [
         loader: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-                { loader: "css-loader" },
+                { loader: "css-loader", query: { localIdentName: '[hash:8]', modules: true } },
                 { loader: "less-loader" },
                 { loader: "postcss-loader" }
             ],
@@ -126,7 +126,10 @@ if (isProduction) {
                 comments: false,
             },
         }),
-        new ExtractTextPlugin("css/b.min.css"),
+        new ExtractTextPlugin({
+            filename: '[name].min.css',
+            allChunks: true
+        }),
         new BundleTracker({filename: "./build/webpack-stats.json"}),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
@@ -143,38 +146,6 @@ if (isProduction) {
             ],
             {copyUnmodified: true}
         ),
-
-        // new CopyWebpackPlugin([
-        //         {
-        //             from: path.join(sourcePath, "jquery.min.js"),
-        //             to: "js"
-        //         },
-        //         {
-        //             from: path.join(sourcePath, "scrolloverflow.min.js"),
-        //             to: "js"
-        //         },
-        //         {
-        //             from: path.join(sourcePath, "jquery.fullPage.js"),
-        //             to: "js"
-        //         },
-        //         {
-        //             from: path.join(sourcePath, "jquery.blueimp-gallery.min.js"),
-        //             to: "js"
-        //         },
-        //         {
-        //             from: path.join(sourcePath, "img/backgrounds/ajax-loader.gif"),
-        //             to: "img/backgrounds"
-        //         },
-        //     ],
-        //     {copyUnmodified: true}
-        // ),
-        new webpack.ProvidePlugin({
-            React: "react",
-            ReactDOM: "react-dom",
-            PureComponent: "react",
-            PropTypes: "react",
-            _: 'lodash'
-        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'library',
             filename: "js/library.[hash:8].js",
@@ -224,20 +195,12 @@ if (isProduction) {
         new BundleTracker({filename: "./build/webpack-stats.json"}),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
-        new webpack.ProvidePlugin({
-            React: "react",
-            ReactDOM: "react-dom",
-            PureComponent: "react",
-            PropTypes: "react",
-            _: 'lodash'
-        }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'library',
             filename: "js/library.[hash:8].js",
             minChunks(module, count) {
                 return module.context && module.context.indexOf('node_modules') >= 0;
-            },
-            chunks: ['index']
+            }
         }),
 
         // new BundleAnalyzerPlugin({

@@ -19,19 +19,19 @@ ReactDOM.render(
     <Router history={browserHistory}>
         <Route path="/" component={RootBlock}>
             <IndexRoute
-                getComponent={(location, cb) => {System.import('./components/content/Home').then(loadRoute(cb)).catch(errorLoading);}}
+                getComponent={(location, cb) => {import('./components/content/Home').then(loadRoute(cb)).catch(errorLoading);}}
             />
             <Route path='/gallery'
-                   getComponent={(location, cb) => {System.import('./components/content/Gallery').then(loadRoute(cb)).catch(errorLoading);}}
+                   getComponent={(location, cb) => {import('./components/content/Gallery').then(loadRoute(cb)).catch(errorLoading);}}
             />
             <Route path='/tailoring'
-                   getComponent={(location, cb) => {System.import('./components/content/Tailoring').then(loadRoute(cb)).catch(errorLoading);}}
+                   getComponent={(location, cb) => {import('./components/content/Tailoring').then(loadRoute(cb)).catch(errorLoading);}}
             />
             <Route path='/print'
-                   getComponent={(location, cb) => {System.import('./components/content/Printing').then(loadRoute(cb)).catch(errorLoading);}}
+                   getComponent={(location, cb) => {import('./components/content/Printing').then(loadRoute(cb)).catch(errorLoading);}}
             />
             <Route path='/contact'
-                   getComponent={(location, cb) => {System.import('./components/content/Contact').then(loadRoute(cb)).catch(errorLoading);}}
+                   getComponent={(location, cb) => {import('./components/content/Contact').then(loadRoute(cb)).catch(errorLoading);}}
             />
         </Route>
     </Router>,

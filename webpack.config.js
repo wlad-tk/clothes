@@ -49,7 +49,7 @@ const rules = [
         loader: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-                { loader: "css-loader", query: { localIdentName: '[hash:8]', modules: true } },
+                { loader: "css-loader", query: { modules: false } },
                 { loader: "postcss-loader" }
             ]
         }),
@@ -60,7 +60,7 @@ const rules = [
         loader: ExtractTextPlugin.extract({
             fallback: "style-loader",
             use: [
-                { loader: "css-loader", query: { localIdentName: '[hash:8]', modules: true } },
+                { loader: "css-loader" },
                 { loader: "less-loader" },
                 { loader: "postcss-loader" }
             ],
@@ -169,7 +169,7 @@ if (isProduction) {
             template: path.join(sourcePath, "index.html"),
             path: buildPath,
             filename: "index.html",
-            chunks: ['index', 'library']
+            favicon: "favicon.ico",
         }),
         new webpack.LoaderOptionsPlugin({
             options: {
@@ -191,7 +191,10 @@ if (isProduction) {
         }),
         new webpack.HotModuleReplacementPlugin(),
         new DashboardPlugin(),
-        new ExtractTextPlugin("css/b.css"),
+        new ExtractTextPlugin({
+            filename: '[name].min.css',
+            allChunks: true
+        }),
         new BundleTracker({filename: "./build/webpack-stats.json"}),
         new webpack.optimize.ModuleConcatenationPlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),

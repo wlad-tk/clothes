@@ -1,6 +1,8 @@
 import React, {PureComponent} from 'react';
 import { Link } from 'react-router'
 
+import '../../style/css/style.less'
+
 class HeaderMenu extends PureComponent {
     constructor(props) {
         super(props);
@@ -22,7 +24,8 @@ class HeaderMenu extends PureComponent {
                         <div className="row">
                             <div className="col-md-6 col-xs-7">
                                 <div className="text">
-                                    <p>Всегда с Вами : (067) 614 2930</p>
+                                    <p>Всегда с Вами: </p>
+                                    <p>(067) 614 2930</p>
                                 </div>
                             </div>
                             <div className="col-md-6 col-xs-5">

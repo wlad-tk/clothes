@@ -15,8 +15,8 @@ class Printing extends PureComponent {
             <div>
                 {/*<header id="head" className="secondary"/>*/}
 
-                <img src={require("../../img/images_header/silk_001.jpg")} className="header-images"/>
-                <img src={require("../../img/images_header/silk_001.jpg")} className="header-images-mobile"/>
+                <img src={require("../../img/images_header/silk_001.jpg")} className="header-images prints"/>
+                <img src={require("../../img/images_header/silk_001.jpg")} className="header-images-mobile prints"/>
 
                 <div className="container">
                     <div className="row">

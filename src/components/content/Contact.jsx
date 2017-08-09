@@ -13,7 +13,11 @@ class Contact extends PureComponent {
     render() {
         return (
             <div>
-                <header id="head" className="secondary-contact"/>
+                {/*<header id="head" className="secondary-contact"/>*/}
+
+                <img src={require("../../img/images_header/004a.jpg")} className="header-images"/>
+                <img src={require("../../img/images_header/1-.jpg")} className="header-images-mobile"/>
+
                 <div className="container">
                     <div className="row">
                         <div className="col-md-4">

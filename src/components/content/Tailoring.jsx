@@ -13,7 +13,11 @@ class Tailoring extends PureComponent {
     render() {
         return (
             <div>
-                <header id="head" className="poh_od"/>
+                {/*<header id="head" className="poh_od"/>*/}
+
+                <img src={require("../../img/images_header/011a.jpg")} className="header-images"/>
+                <img src={require("../../img/images_header/h_005.jpg")} className="header-images-mobile"/>
+
                 <div className="container">
                     <div className="row">
                         <section className="col-sm-12 maincontent">

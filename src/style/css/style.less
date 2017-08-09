@@ -100,22 +100,7 @@ label {
 	font-size: 18px;
 	color: #FFF;
 }
-#head {
-	background-size: cover;
-	height: 600px;
-	text-align: center;
-	color: rgb(13, 192, 192);
-	font-weight: 300;
-	position: relative;
-	background-position-x: center;
-}
-#head.secondary,
-#head.secondary-contact,
-#head.secondary-about {
-	height: 100px;
-	min-height: 100px;
-	padding-top: 0;
-}
+
 #head .lead {
 	font-size: 44px;
 	margin-bottom: 6px;
@@ -817,42 +802,17 @@ nav#filter a.current {
 	text-align: center;
 	color: #ABABAB;
 }
-#head.secondary,
-#head.progect,
-#head.poh_od,
-#head.secondary-contact,
-#head.secondary-about {
-	height: 60vh;
-	padding-top: 0;
-	background-size: cover !important;
-	text-align: left;
-	background-position: center;
+
+.header-images,
+.header-images-mobile {
+	width: 100%;
+		max-height: 500px;
+}
+.header-images-mobile {
+	display: none;
 }
 
-#head.secondary {
-	background: #181015 url(../../img/images_header/silk_001.jpg) 0 0 no-repeat;
-}
-#head.progect {
-	background: #181015 url(../../img/images_header/silk_002.jpg) 0 0 no-repeat;
-}
-#head.poh_od {
-	background: #181015 url(../../img/images_header/h_005.jpg) 0 0 no-repeat;
-}
-#head.secondary-contact {
-	background: #181015 url(../../img/images_header/1-.jpg) 100% 33% no-repeat;
-}
-#head.secondary-about {
-	background: #181015 url(../../img/images_header/h_002.jpg) 0 0 no-repeat;
-}
-#head.secondary h1,
-#head.secondary-contact h1,
-#head.secondary-about h1 {
-	height: 300px;
-	line-height: 390px;
-
-	COLOR: #1E3434;
-}
-/*Price table*/
+	/*Price table*/
 .flat {
 	margin: 30px 0;
 }
@@ -913,15 +873,7 @@ nav#filter a.current {
 .news-box {
 	padding: 0 15px;
 }
-.home-galery {
-	div {
-		display: none;
-		width: 100%;
-		height: 60vh;
-		background: no-repeat center;
-		background-size: 100% auto;
-	}
-}
+
 
 .navbar-inverse {
 	border-radius: 0;
@@ -938,9 +890,6 @@ nav#filter a.current {
 	#head.secondary-about {
 		height: 80px;
 		min-height: 80px;
-	}
-	#camera_wrap_4, #head{
-		height:480px !important;
 	}
 	#head .lead {
 		font-size: 34px;
@@ -968,9 +917,6 @@ nav#filter a.current {
 /* Small devices (tablets, up to 768px) */
 @media (max-width: 768px) {
 	/* Make the indicators larger for easier clicking with fingers/thumb on mobile */
-	#camera_wrap_4, #head{
-		height:480px !important;
-	}
 	.navbar-inverse .navbar-nav > li > a, .navbar-inverse .navbar-nav > .open ul > a {
 		font-size: 13px;
 	}
@@ -1010,19 +956,14 @@ nav#filter a.current {
 		font-size: 19px;
 		font-weight: 400;
 	}
-
 	.navbar-inverse .navbar-brand {
 		margin-top: 1%;
 		padding: 0 0 0 15px;
 	}
-}
-@media (min-width: 1200px) {
-	.home-galery {
-		img {
-			display: none;
-		}
-		div {
-			display: block;
-		}
+	.header-images-mobile {
+		display: block;
+	}
+	.header-images {
+		display: none;
 	}
 }

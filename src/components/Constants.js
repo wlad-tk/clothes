@@ -59,9 +59,9 @@ export const GALLARY_MENU = [
 ];
 
 export const GALLERY_HOME = [
-    "sh_p_001.jpg",
-    "sh_p_003.jpg",
-    "sh_p_004.jpg",
+    "002a.jpg",
+    "003a.jpg",
+    "010a.jpg",
 ];
 
 export const GALLERY_PROJECT = {

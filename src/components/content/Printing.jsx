@@ -13,7 +13,11 @@ class Printing extends PureComponent {
     render() {
         return (
             <div>
-                <header id="head" className="secondary"/>
+                {/*<header id="head" className="secondary"/>*/}
+
+                <img src={require("../../img/images_header/silk_001.jpg")} className="header-images"/>
+                <img src={require("../../img/images_header/silk_001.jpg")} className="header-images-mobile"/>
+
                 <div className="container">
                     <div className="row">
                         <section className="col-sm-12 maincontent">

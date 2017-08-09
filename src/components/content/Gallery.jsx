@@ -28,7 +28,11 @@ class Gallery extends PureComponent {
 
         return (
             <div>
-                <header id="head" className="progect"/>
+                {/*<header id="head" className="progect"/>*/}
+
+                <img src={require("../../img/images_header/012a.jpg")} className="header-images"/>
+                <img src={require("../../img/images_header/silk_002.jpg")} className="header-images-mobile"/>
+
                 <section className="container">
                     <div className="row">
                         <div className="col-md-12">

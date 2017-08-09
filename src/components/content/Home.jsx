@@ -33,10 +33,7 @@ class Home extends PureComponent {
                           emulateTouch
                 >
                     {_.map(GALLERY_HOME, (value, key) =>
-                        <div key={key} className="home-galery">
-                            <img src={require('../../img/slider_home/'+ value)}/>
-                            <div style={{ backgroundImage: "url(" + require('../../img/slider_home/'+ value) + ")" }}/>
-                        </div>
+                        <div key={key}><img src={require('../../img/slider_home/'+ value)}/></div>
                     )}
                 </Carousel>
 
